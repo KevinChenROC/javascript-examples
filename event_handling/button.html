@@ -1,0 +1,12 @@
+<button id="mybutton">Click me :)</button>
+<script>
+  let b = document.querySelector("#mybutton");
+  b.onclick = () => {
+    console.log("hey!");
+  };
+  b.addEventListener("click", () => console.log("thanks!"));
+  b.addEventListener("click", () => console.log("thanks! again"));
+  b.addEventListener("click", () => console.log("thanks! again again"));
+</script>
+
+<input type="text" name="test" id="hello" />
