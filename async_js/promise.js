@@ -1,28 +1,17 @@
-let success = true;
+let duration = 3000;
 
-const F = (data) => {
+function doSomethingAsyc() {
   return new Promise((resolve, reject) => {
-    console.log("do...F");
-    setTimeout(() => {
-      if (success) resolve(data + " success!");
-      else reject(data + " FAIL!");
-    }, 3000);
+    setTimeout(() => resolve("Finishing async tasks", duration), duration);
   });
-};
+}
 
-//Promise usage
-// F(123)
-//   .then((result) => console.log(result))
-//   .catch((result) => console.log(result));
-
-//async and await
 const doSomething = async () => {
-  try {
-    const data = await F(123);
-    console.log(data);
-  } catch (err) {
-    console.log(err);
-  }
+  console.log(await doSomethingAsyc());
+  console.log("after await"); // this line awaits the previous line to be finished.
 };
-//Invoking the async function
+
+console.log("before");
 doSomething();
+doSomething();
+console.log("after");
