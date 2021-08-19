@@ -1,17 +1,20 @@
-let duration = 3000;
-
-function doSomethingAsyc() {
+function doSomethingAsyc(duration) {
   return new Promise((resolve, reject) => {
-    setTimeout(() => resolve("Finishing async tasks", duration), duration);
+    console.log("......");
+
+    setTimeout(
+      () => resolve("Finished async tasks after " + duration / 1000),
+      duration
+    );
   });
 }
 
 const doSomething = async () => {
-  console.log(await doSomethingAsyc());
+  let duration = 3000;
+  console.log(await doSomethingAsyc(duration));
   console.log("after await"); // this line awaits the previous line to be finished.
 };
 
-console.log("before");
+console.log("before doSomething()");
 doSomething();
-doSomething();
-console.log("after");
+console.log("after doSomething()");
